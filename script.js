@@ -64,9 +64,9 @@ animationStates.forEach((state, index) =>{
         loc: [],
     }
     for (let i = 0; i < state.frames; i++){
-        let positionx = i * spriteWidth;
-        let positiony = index * spriteHeight;
-        frames.loc.push({x:positionx, y: positiony});
+        let positionX = i * spriteWidth;
+        let positionY = index * spriteHeight;
+        frames.loc.push({x:positionX, y: positionY});
     }
     spriteAnimations[state.name] = frames;
 });
@@ -76,14 +76,14 @@ console.log(spriteAnimations);
 function animate(){
     ctx.clearRect(0,0,CANVAS_WIDTH,CANVAS_HEIGHT);
     let position = Math.floor(gameFrame/staggerFrame) % spriteAnimations[playerStates].loc.length;
-    let framex = spriteWidth * position;
-    let framey = spriteAnimations[playerStates].loc[position].y;
+    let frameX = spriteWidth * position;
+    let frameY = spriteAnimations[playerStates].loc[position].y;
     // ctx.fillRect(100,50,100,100);
     // ctx.drawImage(image,sx,sy,sw,sh,dx,dy,dw,dh)
-    ctx.drawImage(playerImage,framex,framey,spriteWidth,spriteHeight,0,0,spriteWidth,spriteHeight);
+    ctx.drawImage(playerImage,frameX,frameY,spriteWidth,spriteHeight,0,0,spriteWidth,spriteHeight);
     // if(gameFrame % staggerFrame == 0){
-    //     if(framex <6) {framex++}
-    //     else {framex =0};
+    //     if(frameX <6) {frameX++}
+    //     else {frameX =0};
     // }
     gameFrame++
     requestAnimationFrame(animate);
